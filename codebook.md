@@ -17,15 +17,17 @@ Move the datasets in the list below to your working directory.
 The goal was to create a tidy dataset grouped by subject and activity summarizing the average of each of mean and standard deviation variable.
 
 ## DATA FILES NEEDED IN WORKING DIRECTORY:
-- 'features_info.txt'     - Information about the variables used 
-- 'features.txt'          - A 561-feature vector with time and frequency domain variables.  561 variables in X datasets).
-- 'activity_labels.txt'   - Links the class labels with their activity name.
-- 'train/X_train.txt'     - Training set.(Accelerometer and Gyroscope Data with 561 Variables)
-- 'test/X_test.txt'       - Test set.  (Accelerometer and Gyroscope Data with 561 Variables)
-- 'train/y_train.txt'     - Training row labels.
-- 'test/y_test.txt'       - Test row labels.
-- 'subject_train.txt'     - Subject identifiers in training dataset
-- 'subject_test.txt'      - Subject identifiers in test dataset
+| File                  |   File Description                                                                                 |
+|-----------------------|----------------------------------------------------------------------------------------------------|
+| 'features_info.txt'   |   Information about the variables used                                                             |
+| 'features.txt'        |   A 561-feature vector with time and frequency domain variables.  561 variables in X datasets).    |
+| 'activity_labels.txt' |   Links the class labels with their activity name.                                                 |
+| 'train/X_train.txt'   |   Training set.(Accelerometer and Gyroscope Data with 561 Variables)                               |
+| 'test/X_test.txt'     |   Test set.  (Accelerometer and Gyroscope Data with 561 Variables)                                 |
+| 'train/y_train.txt'   |   Training row labels.                                                                             |
+| 'test/y_test.txt'     |   Test row labels.                                                                                 |
+| 'subject_train.txt'   |   Subject identifiers in training dataset                                                          |
+| 'subject_test.txt'    |   Subject identifiers in test dataset                                                              |
 
 ## METHODOLOGY FOR CREATING TIDY DATASET:
 1. The code first checks for packages that are needed for the analysis
@@ -40,14 +42,16 @@ The goal was to create a tidy dataset grouped by subject and activity summarizin
        - Column name in s_train and s_test is labeled “Subject” –since these are subject identifiers.
 
 3.	Datasets created are as follows:
-     - features = features.txt
-     - activity = activity_labels.txt
-     - xtrain = X_train.txt
-     - xtest = X_test.txt
-     - ytrain = Y_train.txt
-     - ytest = Y_test.txt
-     - strain = subject_train.txt
-     - stest = subject_test.txt
+|  Data Frame  |  Original Data Source |
+|------------- |-----------------------|
+| features     |  features.txt         |
+| activity     |  activity_labels.txt  |
+| xtrain       |  X_train.txt          |
+| xtest        |  X_test.txt           |
+| ytrain       |  Y_train.txt          |
+| ytest        |  Y_test.txt           |
+| strain       |  subject_train.txt    |
+| stest        |  subject_test.txt     |
 
 4.	The column names in xtrain and xtest are renamed using the list of features (variable names) in features  (the column Features)
 
