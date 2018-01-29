@@ -48,10 +48,10 @@ The name of the file will be "Average Sensor Signals By Subject and Activity.txt
 A message is printed to indicate that the dataset has been created and exported to working directory.
 
 ## GITHUB REPOSITORY CONTAINS THE FOLLOWING FILES
-README.MD
-Codebook.txt
-run_analysis.R
-Average Sensor Signals by Subject and Activity.txt (tidy dataset)
+- README.MD
+- Codebook.txt
+- run_analysis.R
+- Average Sensor Signals by Subject and Activity.txt (tidy dataset)
 
 
 ## MORE INFORMATION
