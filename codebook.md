@@ -109,8 +109,8 @@ Data Frame:  40 Observations, 68 Variables
 |  2    |  Activity      | Activity Descriptor   | Character   | Walking, Walking Upstairs, Walking Downstairs, Sitting, Standing,Laying|
 |3-68   |  *see below*   | Features*             | Numeric     | [-1,1]          |
 
-*Note, columns 3-68 are features listed in features.txt. 
-Data for each featuer is normalized and bounded within [-1,1].*
+*Note, columns 3-68 are features listed in features.txt. (mean and stdev features only)
+Data for each feature is normalized and bounded within [-1,1].*
 
 ### VARIABLE DETAILS:
 | Column #    |    Variable Name                          |
