@@ -63,7 +63,7 @@ tidydata <- tidydata[,c(2,1,3:68)]
 tidydata <- tidydata[order(tidydata$Subject,tidydata$Activity),]
 
 #Output the tidy dataset to working directory
-write.table(tidydata,file="Average Sensor Signals By Subject and Activity.txt", sep = "\t", row.names=FALSE)
+write.table(tidydata,file="AverageSensorSignalsBySubjectandActivity.txt", sep = "\t", row.names=FALSE)
 
 #Print message
 print("Tidy Dataset 'Average Sensor Singals by Subject and Activity.txt' Has Been Exported to Your Working Directory")
