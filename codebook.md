@@ -89,7 +89,7 @@ The goal was to create a tidy dataset grouped by subject and activity summarizin
      | "Gyro-"      |  "Gyroscope "           |
      | "mean"       |  "Mean"                 |
      | "std"        |  "StdDev"               |
-     | \\(|\\)      |  ""                     |
+     | "()"         |  ""                     |
      
        - Str_replace_all is used to assign names to columns where the replacements above are made
 
@@ -109,8 +109,8 @@ Data Frame:  40 Observations, 68 Variables
 |  2    |  Activity      | Activity Descriptor   | Character   | Walking, Walking Upstairs, Walking Downstairs, Sitting, Standing,Laying|
 |3-68   |  *see below*   | Features*             | Numeric     | [-1,1]          |
 
-*Note, for columns 3-68 Variable Names represent Features
-Numeric data for Features are normalized and bounded within [-1,1].
+*Note, columns 3-68 are features listed in features.txt. 
+Data for each featuer is normalized and bounded within [-1,1].*
 
 ### VARIABLE DETAILS:
 | Column #    |    Variable Name                          |
