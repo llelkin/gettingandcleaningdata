@@ -42,9 +42,10 @@ The goal was to create a tidy dataset grouped by subject and activity summarizin
        - Column name in s_train and s_test is labeled “Subject” –since these are subject identifiers.
 
 3.	Datasets created are as follows:
-|  Data Frame  |  Original Data Source |
-|------------- |-----------------------|
-| features     |  features.txt         |
+
+|Data Frame  |Original Data Source |
+|--------------|-----------------------|
+|features     |  features.txt         |
 | activity     |  activity_labels.txt  |
 | xtrain       |  X_train.txt          |
 | xtest        |  X_test.txt           |
@@ -75,17 +76,21 @@ The goal was to create a tidy dataset grouped by subject and activity summarizin
 11. The variable names in final are modified to be more readable.
      - Gsub is used to add spaces in front of uppercase letters
      - Two vectors are created to allow substitutions as follows:
-        - "t "  ="Time "
-        - "f "  = Frequency "
-       - "Acc "  ="Acceleration "
-       - "Acc-"  ="Acceleration "
-       - "Mag "  ="Magnitude "
-       - "Mag-"  ="Magnitude "
-       - "Gyro " ="Gyroscope "
-       - "Gyro-" ="Gyroscope "
-       - "mean"  ="Mean"
-       - "std"  ="StdDev"
-       - "\\(|\\)" =""
+     
+     |Look For      |Substitution             |
+     |--------------|-------------------------|
+     |"t "          |  "Time "                |
+     |"f "          |  "Frequency "           |
+     | "Acc "       |  "Acceleration "        |
+     | "Acc-"       |  "Acceleration "        |
+     | "Mag "       |  "Magnitude "           |
+     | "Mag-"       |  "Magnitude "           |
+     | "Gyro "      |  "Gyroscope "           |
+     | "Gyro-"      |  "Gyroscope "           |
+     | "mean"       |  "Mean"                 |
+     | "std"        |  "StdDev"               |
+     | "\\(|\\)"    |  ""                     |
+     
        - Str_replace_all is used to assign names to columns where the replacements above are made
 
 12.	The final dataset tidydata is created by grouping the dataset called final by “Subject” and “Activity” and then using ddply to apply colMeans to the data in columns 5:70 (the mean and std variables from the original x datasets)
@@ -98,21 +103,16 @@ The goal was to create a tidy dataset grouped by subject and activity summarizin
 Data Frame:  40 Observations, 68 Variables
 
 ### VARIABLE SUMMARY:
-Subject = Subject Identifier      Numeric      1:30
+|Column |  Variable Name | Variable Description  | Atomic Type | Possible Values |
+|-------|----------------|-----------------------|-------------|-----------------|
+|  1    |  Subject       | Subject Identifier    | Numeric     | 1:30            |
+|  2    |  Activity      | Activity Descriptor   | Character   | Walking, Walking Upstairs, Walking Downstairs, Sitting, Standing,Laying|
+|3-68   |                | Featuers*             | Numeric     | [-1,1]          |
 
-Activity = Activity Descriptor    Character    Walking
-	                                            Walking Upstairs
-	                                            Walking Downstairs
-                                               Sitting
-	                                            Standing
-	                                            Laying
-
-Col 3-68 Features*                 Numeric      [-1,1]
-
-### VARIABLE DETAILS:
 *Note, for columns 3-68 Variable Names represent Features
 Numeric data for Features are normalized and bounded within [-1,1].
 
+### VARIABLE DETAILS:
 
 1                                                 Subject
 2                                                Activity
