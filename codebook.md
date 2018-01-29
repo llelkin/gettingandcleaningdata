@@ -89,7 +89,7 @@ The goal was to create a tidy dataset grouped by subject and activity summarizin
      | "Gyro-"      |  "Gyroscope "           |
      | "mean"       |  "Mean"                 |
      | "std"        |  "StdDev"               |
-     | "\\(|\\)"    |  ""                     |
+     | \\(|\\)      |  ""                     |
      
        - Str_replace_all is used to assign names to columns where the replacements above are made
 
@@ -107,79 +107,80 @@ Data Frame:  40 Observations, 68 Variables
 |-------|----------------|-----------------------|-------------|-----------------|
 |  1    |  Subject       | Subject Identifier    | Numeric     | 1:30            |
 |  2    |  Activity      | Activity Descriptor   | Character   | Walking, Walking Upstairs, Walking Downstairs, Sitting, Standing,Laying|
-|3-68   |                | Featuers*             | Numeric     | [-1,1]          |
+|3-68   |  *see below*   | Features*             | Numeric     | [-1,1]          |
 
 *Note, for columns 3-68 Variable Names represent Features
 Numeric data for Features are normalized and bounded within [-1,1].
 
 ### VARIABLE DETAILS:
-
-1                                                 Subject
-2                                                Activity
-3                          Time Body Acceleration Mean- X
-4                          Time Body Acceleration Mean- Y
-5                          Time Body Acceleration Mean- Z
-6                        Time Body Acceleration StdDev- X
-7                        Time Body Acceleration StdDev- Y
-8                        Time Body Acceleration StdDev- Z
-9                       Time Gravity Acceleration Mean- X
-10                      Time Gravity Acceleration Mean- Y
-11                      Time Gravity Acceleration Mean- Z
-12                    Time Gravity Acceleration StdDev- X
-13                    Time Gravity Acceleration StdDev- Y
-14                    Time Gravity Acceleration StdDev- Z
-15                    Time Body Acceleration Jerk-Mean- X
-16                    Time Body Acceleration Jerk-Mean- Y
-17                    Time Body Acceleration Jerk-Mean- Z
-18                  Time Body Acceleration Jerk-StdDev- X
-19                  Time Body Acceleration Jerk-StdDev- Y
-20                  Time Body Acceleration Jerk-StdDev- Z
-21                            Time Body Gyroscope Mean- X
-22                            Time Body Gyroscope Mean- Y
-23                            Time Body Gyroscope Mean- Z
-24                          Time Body Gyroscope StdDev- X
-25                          Time Body Gyroscope StdDev- Y
-26                          Time Body Gyroscope StdDev- Z
-27                       Time Body Gyroscope Jerk-Mean- X
-28                       Time Body Gyroscope Jerk-Mean- Y
-29                       Time Body Gyroscope Jerk-Mean- Z
-30                     Time Body Gyroscope Jerk-StdDev- X
-31                     Time Body Gyroscope Jerk-StdDev- Y
-32                     Time Body Gyroscope Jerk-StdDev- Z
-33                  Time Body Acceleration Magnitude Mean
-34                Time Body Acceleration Magnitude StdDev
-35               Time Gravity Acceleration Magnitude Mean
-36             Time Gravity Acceleration Magnitude StdDev
-37             Time Body Acceleration Jerk Magnitude Mean
-38           Time Body Acceleration Jerk Magnitude StdDev
-39                     Time Body Gyroscope Magnitude Mean
-40                   Time Body Gyroscope Magnitude StdDev
-41                Time Body Gyroscope Jerk Magnitude Mean
-42              Time Body Gyroscope Jerk Magnitude StdDev
-43                    Frequency Body Acceleration Mean- X
-44                    Frequency Body Acceleration Mean- Y
-45                    Frequency Body Acceleration Mean- Z
-46                  Frequency Body Acceleration StdDev- X
-47                  Frequency Body Acceleration StdDev- Y
-48                  Frequency Body Acceleration StdDev- Z
-49               Frequency Body Acceleration Jerk-Mean- X
-50               Frequency Body Acceleration Jerk-Mean- Y
-51               Frequency Body Acceleration Jerk-Mean- Z
-52             Frequency Body Acceleration Jerk-StdDev- X
-53             Frequency Body Acceleration Jerk-StdDev- Y
-54             Frequency Body Acceleration Jerk-StdDev- Z
-55                       Frequency Body Gyroscope Mean- X
-56                       Frequency Body Gyroscope Mean- Y
-57                       Frequency Body Gyroscope Mean- Z
-58                     Frequency Body Gyroscope StdDev- X
-59                     Frequency Body Gyroscope StdDev- Y
-60                     Frequency Body Gyroscope StdDev- Z
-61             Frequency Body Acceleration Magnitude Mean
-62           Frequency Body Acceleration Magnitude StdDev
-63   Frequency Body Body Acceleration Jerk Magnitude Mean
-64 Frequency Body Body Acceleration Jerk Magnitude StdDev
-65           Frequency Body Body Gyroscope Magnitude Mean
-66         Frequency Body Body Gyroscope Magnitude StdDev
-67      Frequency Body Body Gyroscope Jerk Magnitude Mean
-68    Frequency Body Body Gyroscope Jerk Magnitude StdDev
+| Column #    |    Variable Name                          |
+|-------------|-------------------------------------------|
+|1            |                                     Subject|
+|2            |                                    Activity|
+|3            |              Time Body Acceleration Mean- X|
+|4            |              Time Body Acceleration Mean- Y|
+|5             |             Time Body Acceleration Mean- Z|
+|6              |          Time Body Acceleration StdDev- X|
+|7               |         Time Body Acceleration StdDev- Y|
+|8             |           Time Body Acceleration StdDev- Z|
+|9             |          Time Gravity Acceleration Mean- X|
+|10            |          Time Gravity Acceleration Mean- Y|
+|11            |          Time Gravity Acceleration Mean- Z|
+|12            |        Time Gravity Acceleration StdDev- X|
+|13            |        Time Gravity Acceleration StdDev- Y|
+|14            |        Time Gravity Acceleration StdDev- Z|
+|15            |        Time Body Acceleration Jerk-Mean- X|
+|16            |        Time Body Acceleration Jerk-Mean- Y|
+|17            |        Time Body Acceleration Jerk-Mean- Z|
+|18            |      Time Body Acceleration Jerk-StdDev- X|
+|19            |      Time Body Acceleration Jerk-StdDev- Y|
+|20            |      Time Body Acceleration Jerk-StdDev- Z|
+|21            |                Time Body Gyroscope Mean- X|
+|22            |                Time Body Gyroscope Mean- Y|
+|23            |                Time Body Gyroscope Mean- Z|
+|24            |              Time Body Gyroscope StdDev- X|
+|25            |              Time Body Gyroscope StdDev- Y|
+|26            |              Time Body Gyroscope StdDev- Z|
+|27            |           Time Body Gyroscope Jerk-Mean- X|
+|28            |           Time Body Gyroscope Jerk-Mean- Y|
+|29            |           Time Body Gyroscope Jerk-Mean- Z|
+|30            |         Time Body Gyroscope Jerk-StdDev- X|
+|31            |         Time Body Gyroscope Jerk-StdDev- Y|
+|32            |         Time Body Gyroscope Jerk-StdDev- Z|
+|33            |      Time Body Acceleration Magnitude Mean|
+|34            |    Time Body Acceleration Magnitude StdDev|
+|35            |   Time Gravity Acceleration Magnitude Mean|
+|36            | Time Gravity Acceleration Magnitude StdDev|
+|37            | Time Body Acceleration Jerk Magnitude Mean|
+|38          | Time Body Acceleration Jerk Magnitude StdDev|
+|39           |          Time Body Gyroscope Magnitude Mean|
+|40           |        Time Body Gyroscope Magnitude StdDev|
+|41           |     Time Body Gyroscope Jerk Magnitude Mean|
+|42           |   Time Body Gyroscope Jerk Magnitude StdDev|
+|43           |         Frequency Body Acceleration Mean- X|
+|44           |         Frequency Body Acceleration Mean- Y|
+|45           |         Frequency Body Acceleration Mean- Z|
+|46           |       Frequency Body Acceleration StdDev- X|
+|47           |       Frequency Body Acceleration StdDev- Y|
+|48           |       Frequency Body Acceleration StdDev- Z|
+|49           |    Frequency Body Acceleration Jerk-Mean- X|
+|50           |    Frequency Body Acceleration Jerk-Mean- Y|
+|51           |    Frequency Body Acceleration Jerk-Mean- Z|
+|52           |  Frequency Body Acceleration Jerk-StdDev- X|
+|53           |  Frequency Body Acceleration Jerk-StdDev- Y|
+|54           |  Frequency Body Acceleration Jerk-StdDev- Z|
+|55           |            Frequency Body Gyroscope Mean- X|
+|56           |            Frequency Body Gyroscope Mean- Y|
+|57           |            Frequency Body Gyroscope Mean- Z|
+|58           |          Frequency Body Gyroscope StdDev- X|
+|59           |          Frequency Body Gyroscope StdDev- Y|
+|60           |          Frequency Body Gyroscope StdDev- Z|
+|61           |  Frequency Body Acceleration Magnitude Mean|
+|62           |Frequency Body Acceleration Magnitude StdDev|
+|63   |Frequency Body Body Acceleration Jerk Magnitude Mean|
+|64 |Frequency Body Body Acceleration Jerk Magnitude StdDev|
+|65 |          Frequency Body Body Gyroscope Magnitude Mean|
+|66  |       Frequency Body Body Gyroscope Magnitude StdDev|
+|67   |   Frequency Body Body Gyroscope Jerk Magnitude Mean|
+|68    |Frequency Body Body Gyroscope Jerk Magnitude StdDev|
 
