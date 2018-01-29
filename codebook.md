@@ -17,27 +17,27 @@ Move the datasets in the list below to your working directory.
 The goal was to create a tidy dataset grouped by subject and activity summarizing the average of each of mean and standard deviation variable.
 
 ## DATA FILES NEEDED IN WORKING DIRECTORY:
-- 'features_info.txt'     -Information about the variables used 
-- 'features.txt'          -A 561-feature vector with time and frequency domain variables.  561 variables in X datasets).
-- 'activity_labels.txt'   -Links the class labels with their activity name.
-- 'train/X_train.txt'     -Training set.(Accelerometer and Gyroscope Data with 561 Variables)
-- 'test/X_test.txt'       -Test set.  (Accelerometer and Gyroscope Data with 561 Variables)
-- 'train/y_train.txt'     -Training row labels.
-- 'test/y_test.txt'       -Test row labels.
-- 'subject_train.txt'     -Subject identifiers in training dataset
-- 'subject_test.txt'      -Subject identifiers in test dataset
+- 'features_info.txt'     - Information about the variables used 
+- 'features.txt'          - A 561-feature vector with time and frequency domain variables.  561 variables in X datasets).
+- 'activity_labels.txt'   - Links the class labels with their activity name.
+- 'train/X_train.txt'     - Training set.(Accelerometer and Gyroscope Data with 561 Variables)
+- 'test/X_test.txt'       - Test set.  (Accelerometer and Gyroscope Data with 561 Variables)
+- 'train/y_train.txt'     - Training row labels.
+- 'test/y_test.txt'       - Test row labels.
+- 'subject_train.txt'     - Subject identifiers in training dataset
+- 'subject_test.txt'      - Subject identifiers in test dataset
 
 ## METHODOLOGY FOR CREATING TIDY DATASET:
 -	The code first checks for packages that are needed for the analysis
-  -	If packages aren’t installed then they are installed; 
-  -	If packages are installed, they are loaded
+   - If packages aren’t installed then they are installed; 
+   -	If packages are installed, they are loaded
 
 -	Datasets listed above are loaded into R.
-  -	Some columns are renamed on load:
-   -	Column names in featuers.txt are given name “FeatureCode” and “Feature”  (FeatureCode is Column; Feature is name of each of the 561 variables in the x datasets.  See variables).
-   -	Column names in activity_labels.text are given name “ActivityCode” and “Activity”  (Activity is name of activity that matches a specific “Activity Code” used in the x datasets.  See variables).
-   -	Column name in y_train and y_test is labeled “ActivityCode” –this code matches Activity Code in activity_labels.text.  It will be used to join activity names with codes in x dataset.
-   -	Column name in s_train and s_test is labeled “Subject” –since these are subject identifiers.
+   -	Some columns are renamed on load:
+     -	Column names in featuers.txt are given name “FeatureCode” and “Feature”  (FeatureCode is Column; Feature is name of each of the 561 variables in the x datasets.  See variables).
+     -	Column names in activity_labels.text are given name “ActivityCode” and “Activity”  (Activity is name of activity that matches a specific “Activity Code” used in the x datasets.  See variables).
+     -	Column name in y_train and y_test is labeled “ActivityCode” –this code matches Activity Code in activity_labels.text.  It will be used to join activity names with codes in x dataset.
+     -	Column name in s_train and s_test is labeled “Subject” –since these are subject identifiers.
 
 -	Datasets created are as follows:
   -	features = features.txt
