@@ -16,18 +16,27 @@ h <- as.list(features$Feature)
 colnames(xtest) <- c(h)
 colnames(xtrain) <- c(h)
 
-# Merge the dataset Activity into ytrain and ytest so that Activity Code has human-readable descriptor
-ytrain <- merge(ytrain,activity,by.x = "ActivityCode",by.y = "ActivityCode",all.x = TRUE)
-ytest <- merge(ytest,activity,by.x = "ActivityCode",by.y = "ActivityCode",all.x = TRUE)
+# Creates a column in ytrain and ytest that describes activity based on code in ActivityCode
+ytrain$activity <- factor(ytrain$ActivityCode, labels = as.character(activity[,2]))
+ytest$activity <- factor(ytest$ActivityCode, labels = as.character(activity[,2]))
+
+ytrain <- ytrain[,2]
+ytest <- ytest[,2]
+
 
 # Bind columns from stest,ytest,xtest to make one dataset.  Do the same for the training datasets.
-syxtest <- cbind(stest,ytest,xtest)
-syxtrain <- cbind(strain,ytrain,xtrain)
+syxtest <- cbind(stest, ytest, xtest)
+syxtrain <- cbind(strain, ytrain, xtrain)
+
 
 # Before stacking the two datasets (train and test)...
 # Create a variable that will identify each data source as coming from test or train (useful once they are merged)
 syxtest$Source = "test"
 syxtrain$Source = "train"
+
+colnames(syxtrain)[2] <- "Activity"
+colnames(syxtest)[2] <- "Activity"
+
 stack <- rbind(syxtrain, syxtest)
 
 
@@ -40,8 +49,8 @@ stack <- rbind(syxtrain, syxtest)
 
 f <- features[!(features$Feature %like% "-meanFreq()") & 
                 features$Feature %like% "-mean()" | features$Feature %like% "-std()" ,]
-f$Column = f$FeatureCode + 3
-add <- data.frame(FeatureCode=c(0,0,0,0), Feature=c("Subject","ActivityCode","Activity","Source"),Column=c(1,2,3,565))
+f$Column = f$FeatureCode + 2
+add <- data.frame(FeatureCode=c(0,0,0), Feature=c("Subject","Activity","Source"),Column=c(1,2,564))
 f <- rbind(add,f)
 keep <- as.vector(f$Column)
 final <- stack[,keep]
@@ -55,11 +64,11 @@ names(final) <- str_replace_all(names(final),b)
 
 # Group final by Subject then by Activity to create the tidy dataset which averages all variables by subject & activity.
 groupColumns = c("Subject","Activity")
-dataColumns = c(1,5:70)
+dataColumns = c(4:69)
 tidydata <- ddply(final, groupColumns, function(x) colMeans(x[dataColumns]))
 
 #Reorder and Sort Columns of tidydata by Subject, Activity
-tidydata <- tidydata[,c(2,1,3:68)]
+tidydata <- tidydata[,c(1:2,4:69)]
 tidydata <- tidydata[order(tidydata$Subject,tidydata$Activity),]
 
 #Output the tidy dataset to working directory
